@@ -1,11 +1,18 @@
-node {
-  stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def mvn = tool 'Maven3';
-    withSonarQubeEnv() {
-      bat "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Pipeline-TestProj2"
+pipeline {
+    agent any 
+    stages {
+        stage('Compile Stage') { 
+            steps {
+              withMaven(maven:'Maven3'){
+                sh 'mvn clean compile'
+              }
+            }
+        }
+        stage('Deploy') { 
+            steps {
+              withMaven(maven:'Maven3'){
+                sh 'mvn deploy'
+            }
+        }
     }
-  }
 }
