@@ -1,6 +1,6 @@
 pipeline {
     agent any 
-    def mvn = tool 'Maven3'
+    def mvn = tool 'Maven3';
     stages {
         stage('Compile Stage') { 
             steps {
