@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
+                bat "rmdir  /s /q JenkinsSonarQube"
                 bat "git clone https://github.com/Riyakumari/JenkinsSonarQube.git"
                 bat "mvn clean -f JenkinsSonarQube/sample-project-maven-master"
             }
