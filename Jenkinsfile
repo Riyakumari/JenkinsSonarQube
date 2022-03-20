@@ -8,10 +8,11 @@ pipeline {
               }
             }
         }
-        stage('Deploy') { 
+        stage('Deployment Stage') { 
             steps {
               withMaven(maven:'Maven3'){
                 sh 'mvn deploy'
+              }
             }
         }
     }
