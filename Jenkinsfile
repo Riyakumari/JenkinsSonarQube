@@ -12,7 +12,6 @@ node {
             -D sonar.projectkey=Project1 \
             -d sonar.exclusions=vendor/**,resources/**,**/*.java \
             -D sonar.host.url=http://localhost:9000/"
-        }
     }
   }
 }
